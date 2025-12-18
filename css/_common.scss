@@ -27,6 +27,7 @@ img {
 /* ここから記述します。 */
 .u-sectionTitle {
   font-size: 36px;
+  letter-spacing: 0.08em;
   font-weight: bold;
   color: s.$colorBlue;
   position: relative;
@@ -38,8 +39,8 @@ img {
     background: url(../image/title-image.png) no-repeat center / cover;
     position: absolute;
     top: 10px;
-    left: -30px;
-    width: 25px;
+    left: -32px;
+    width: 26px;
     height: 26px;
     @include s.mq(sp) {
       top: -20px;

@@ -13,6 +13,7 @@ footer
   @include s.mq(sp) {
     background: transparent url(../image/footer-bg-sp.png) no-repeat top center /
       cover;
+    font-size: 15px;
   }
 }
 

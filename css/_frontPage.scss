@@ -8,7 +8,7 @@
 -------------------------------------------*/
 .firstView {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 720px;
 }
 
@@ -23,17 +23,22 @@
   z-index: 90;
 }
 
+.firstView__inner {
+  height: 100%;
+}
+
 .firstView__slideList {
   position: relative;
   width: 100%;
-  height: auto;
   @include s.mq(sp) {
+    height: 100vh;
     position: absolute;
     top: 72px;
   }
 }
 
 .firstView__slideItem {
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -43,6 +48,9 @@
   animation-timing-function: ease-in-out;
   animation-delay: 0.5s;
   animation-iteration-count: infinite;
+  @include s.mq(sp) {
+    height: 100vh;
+  }
 }
 
 .firstView__slideItem:nth-child(1) {
@@ -59,8 +67,9 @@
 
 .firstView__slideItem img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 @keyframes slider {
@@ -156,6 +165,7 @@
   margin-top: 30px;
   @include s.mq(sp) {
     height: 301px;
+    margin-top: 0;
   }
 }
 .support__image--03 {
@@ -604,6 +614,7 @@
     @include s.mq(sp) {
       width: 76px;
       height: 127px;
+      bottom: 0;
     }
   }
 }
