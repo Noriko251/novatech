@@ -1,0 +1,732 @@
+@use "setting" as s;
+/*除算用にmathモジュールをインポート*/
+@use "sass:math";
+
+/* ここから記述します。 */
+/*-------------------------------------------
+スライドレイアウト
+-------------------------------------------*/
+.firstView {
+  position: relative;
+  width: 100%;
+  height: 720px;
+}
+
+.firstView::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -46%;
+  width: 352px;
+  height: 559px;
+  background: transparent url(../image/bubble.png) no-repeat center/cover;
+  z-index: 90;
+}
+
+.firstView__slideList {
+  position: relative;
+  width: 100%;
+  height: auto;
+  @include s.mq(sp) {
+    position: absolute;
+    top: 72px;
+  }
+}
+
+.firstView__slideItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation-name: slider;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+.firstView__slideItem:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.firstView__slideItem:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.firstView__slideItem:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.firstView__slideItem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@keyframes slider {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.firstView__text {
+  position: absolute;
+  top: 348px;
+  left: 8%;
+  color: s.$colorBlue;
+  font-size: 40px;
+  font-weight: bold;
+  z-index: 50;
+  @include s.mq(sp) {
+    top: 455px;
+    font-size: 34px;
+    left: 20px;
+  }
+}
+
+.firstView__text p {
+  display: inline-block;
+}
+
+.firstView__text p:first-of-type {
+  position: relative;
+}
+.firstView__text p:first-of-type::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 26px;
+  height: 27px;
+  background: transparent url(../image/title-image.png) no-repeat center / cover;
+}
+
+/*-------------------------------------------
+「信頼の技術とサポート」レイアウト
+-------------------------------------------*/
+.support__inner {
+  position: relative;
+  max-width: 1080px;
+  height: 670px;
+  margin: 110px auto 220px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 91;
+  @include s.innerWidth;
+  @include s.mq(sp) {
+    flex-direction: column;
+    width: percentage(math.div(390, 420));
+    height: auto;
+    margin: 54px auto 116px;
+  }
+}
+
+.support__imageWrapper {
+  width: percentage(math.div(500, 1080));
+  position: relative;
+  @include s.mq(sp) {
+    width: 100%;
+  }
+}
+
+.support__image {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.support__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.support__image--illust {
+  position: relative;
+  margin-top: 30px;
+  @include s.mq(sp) {
+    height: 301px;
+  }
+}
+.support__image--03 {
+  position: absolute;
+  width: 225px;
+  height: auto;
+  top: 50px;
+  left: -65px;
+  @include s.mq(sp) {
+    width: 180px;
+    left: 0;
+  }
+}
+
+.support__image--04 {
+  position: absolute;
+  width: 330px;
+  height: auto;
+  right: 0;
+  @include s.mq(sp) {
+    width: 200px;
+  }
+}
+
+.support__contentWrapper {
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include s.mq(sp) {
+    width: 100%;
+  }
+}
+
+.support__text h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: s.$colorBlue;
+  margin-bottom: 26px;
+  @include s.mq(sp) {
+    font-size: 30px;
+  }
+}
+
+.support__text p {
+  letter-spacing: 0.08em;
+  @include s.mq(sp) {
+    margin-bottom: 23px;
+    font-size: 15px;
+  }
+}
+
+/*-------------------------------------------
+「SERVICE」レイアウト
+-------------------------------------------*/
+.service__layout {
+  position: relative;
+  padding-top: 64px;
+  background-color: #f6f8fa;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -110px;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    background: transparent url(../image/service-bg01.png) no-repeat top center /
+      cover;
+    @include s.mq(sp) {
+      top: -36px;
+      height: 36px;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -110px;
+    width: 100%;
+    height: 110px;
+    background: url(../image/service-bg02.png) no-repeat bottom center / cover;
+    @include s.mq(sp) {
+      bottom: -36px;
+      height: 36px;
+    }
+  }
+}
+
+.service__inner {
+  margin: 0 auto;
+  @include s.innerWidth;
+  @include s.mq(sp) {
+    flex-direction: column;
+    width: percentage(math.div(390, 420));
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.service__titleWrap {
+  margin-bottom: 48px;
+  @include s.mq(sp) {
+    margin: 0 15px;
+  }
+}
+
+.service__listWrap {
+  padding-bottom: 20px;
+}
+
+.service__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 354px));
+  column-gap: 75px;
+  @include s.mq(sp) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 614px;
+  justify-content: center;
+}
+
+.service__item:nth-child(2) {
+  margin-top: 44px;
+  @include s.mq(sp) {
+    margin-top: 0;
+  }
+}
+
+.service__imageWrapper {
+  max-width: 354px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.service__list h3 {
+  font-size: 24px;
+  color: s.$colorBlue;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto 8px;
+}
+
+.service__detail {
+  margin-top: 20px;
+}
+
+/*-------------------------------------------
+「ABOUT」レイアウト
+-------------------------------------------*/
+.about__layout {
+  position: relative;
+  margin: 110px auto;
+  padding-top: 109px;
+  @include s.mq(sp) {
+    margin: 36px auto 80px;
+    padding-top: 80px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: 53px;
+    width: 237px;
+    height: 185px;
+    background: url(../image/about-img.png) no-repeat top center / cover;
+    @include s.mq(sp) {
+      width: 135px;
+      height: 105px;
+      top: -60px;
+      left: 10px;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -220px;
+    right: 0;
+    width: 237px;
+    height: 450px;
+    background: url(../image/about-bubble.png) no-repeat top center / cover;
+    @include s.mq(sp) {
+      background: url(../image/about-bubble-sp.png) no-repeat top center / cover;
+      width: 110px;
+      height: 185px;
+      top: -60px;
+    }
+  }
+}
+
+.about__inner {
+  margin: 0 auto;
+  @include s.innerWidth;
+  @include s.mq(sp) {
+    flex-direction: column;
+    width: percentage(math.div(390, 420));
+    height: auto;
+  }
+}
+
+.about__titleWrap {
+  margin-left: 56%;
+  @include s.mq(sp) {
+    margin-left: 0;
+  }
+}
+
+.about__wrap {
+  display: flex;
+  position: relative;
+  @include s.mq(sp) {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.about__imageWrap {
+  width: percentage(math.div(640, 1080));
+  height: 433px;
+  position: relative;
+  top: 11px;
+  @include s.mq(sp) {
+    width: 100%;
+    height: 254px;
+  }
+}
+
+.about__image {
+  aspect-ratio: 1.5;
+  border-radius: 10px;
+}
+
+.about__content {
+  width: percentage(math.div(490, 1080));
+  margin-left: -20px;
+  z-index: 92;
+  @include s.mq(sp) {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+
+.about__content h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: s.$colorBlue;
+  margin: 27.8px 0 16px;
+}
+
+.about__text {
+  margin-bottom: 63.63px;
+  @include s.mq(sp) {
+    margin-bottom: 30px;
+  }
+}
+
+.about__detail {
+  margin-bottom: 80px;
+}
+
+/*-------------------------------------------
+「会社理念・会社概要」レイアウト
+-------------------------------------------*/
+.company__wrap {
+  width: 100%;
+  display: flex;
+  color: s.$colorWhite;
+  @include s.mq(sp) {
+    flex-direction: column;
+  }
+}
+
+.company__card {
+  padding: 50px 0 0 100px;
+  width: 50%;
+  height: 236px;
+  transition: filter 0.3s;
+  &:hover {
+    filter: grayscale(50%);
+  }
+  @include s.mq(sp) {
+    padding: 32px 0 0 32px;
+    width: 100%;
+    height: 151px;
+  }
+}
+
+.company__card:nth-child(1) {
+  background: url(../image/philosophy.png) no-repeat top center / cover;
+}
+
+.company__card:nth-child(2) {
+  background: url(../image/company.png) no-repeat top center / cover;
+}
+
+.company__title {
+  font-size: 36px;
+  font-weight: bold;
+  @include s.mq(sp) {
+    font-size: 24px;
+  }
+}
+
+.company__subtitle {
+  font-size: 12px;
+  margin-bottom: 32px;
+  letter-spacing: 3px;
+  @include s.mq(sp) {
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+  }
+}
+
+.company__arrow {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+  @include s.mq(sp) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.company__card:hover .company__arrow {
+  transform: translateX(40px);
+}
+
+/*-------------------------------------------
+「STAFF」レイアウト
+-------------------------------------------*/
+.staff__layout {
+  background: transparent url(../image/staff-bg.png) no-repeat top center /
+    cover;
+  position: relative;
+  @include s.mq(sp) {
+    background: transparent url(../image/staff-bg-sp.png) no-repeat top center /
+      cover;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 200px;
+    height: 340px;
+    background: transparent url(../image/staff-bubble.png) no-repeat top center /
+      cover;
+    @include s.mq(sp) {
+      background: transparent url(../image/staff-bubble-sp.png) no-repeat top
+        center / cover;
+      width: 82px;
+      height: 142px;
+      top: inherit;
+      left: inherit;
+      right: 0;
+      bottom: 0;
+      transform: rotateX("180deg");
+    }
+  }
+}
+
+.staff__inner {
+  padding: 121px 0 159px percentage(math.div(222, 1280));
+  display: flex;
+  gap: percentage(math.div(60px, 1280px));
+  @include s.mq(sp) {
+    flex-direction: column-reverse;
+    padding: 80px 15px;
+    gap: 100px;
+  }
+}
+
+.staff__contentWrap {
+  width: 40%;
+  @include s.mq(sp) {
+    width: 100%;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 200px;
+    bottom: 50px;
+    width: 348px;
+    height: 155px;
+    background: transparent url(../image/staff-art.png) no-repeat top center /
+      cover;
+    @include s.mq(sp) {
+      top: 370px;
+      left: inherit;
+      right: 10px;
+      bottom: inherit;
+      width: 186px;
+      height: 83px;
+    }
+  }
+}
+
+.staff__text {
+  margin: 35px 0;
+}
+
+.staff__image {
+  width: 57%;
+  height: auto;
+  @include s.mq(sp) {
+    width: 100%;
+    height: 260px;
+    aspect-ratio: 1.5;
+    margin: 0 auto;
+  }
+}
+
+.staff__image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/*-------------------------------------------
+「RECRUIT」レイアウト
+-------------------------------------------*/
+.recruit__layout {
+  background: transparent url(../image/recruit-bg.png) no-repeat top center /
+    cover;
+  padding: 120px 0;
+  position: relative;
+  @include s.mq(sp) {
+    background: transparent url(../image/recruit-bg-sp.png) no-repeat top center /
+      cover;
+    padding: 81px 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    background: transparent url(../image/recruit-bubble.png) no-repeat top
+      center / cover;
+    bottom: -40px;
+    right: 0;
+    width: 239px;
+    height: 388px;
+    @include s.mq(sp) {
+      width: 76px;
+      height: 127px;
+    }
+  }
+}
+
+.recruit__inner {
+  display: flex;
+  gap: 60px;
+  @include s.mq(sp) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.recruit__image {
+  max-width: 640px;
+  @include s.mq(sp) {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.recruit__contentWrap {
+  width: 33%;
+  position: relative;
+  @include s.mq(sp) {
+    width: percentage(math.div(390, 420));
+    margin: 112px auto 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background: transparent url(../image/recruit-art.png) no-repeat top center /
+      cover;
+    bottom: -67px;
+    left: 0;
+    width: 254px;
+    height: 149px;
+    @include s.mq(sp) {
+      width: 141px;
+      height: 82px;
+      left: inherit;
+      bottom: inherit;
+      top: -78px;
+      right: 0;
+    }
+  }
+}
+
+/*-------------------------------------------
+「お問い合わせ」レイアウト
+-------------------------------------------*/
+.contact__layout {
+  width: 100%;
+  height: 356px;
+  margin-bottom: 182px;
+  background: transparent url(../image/contact-bg.png);
+  position: relative;
+  padding-top: 90px;
+  @include s.mq(sp) {
+    padding-top: 48px;
+  }
+}
+
+.contact__inner {
+  max-width: 995px;
+  width: percentage(math.div(995, 1280));
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  @include s.mq(sp) {
+    width: percentage((math.div(372, 420)));
+    flex-direction: column-reverse;
+    margin: 0 24px;
+  }
+}
+
+.contact__content {
+  width: percentage(math.div(475px, 995px));
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  background-color: s.$colorWhite;
+  padding: 93px 42px;
+  @include s.mq(sp) {
+    width: 100%;
+    height: auto;
+    padding: 24px 16px;
+    align-items: center;
+  }
+}
+
+.contact__image {
+  width: percentage(math.div(520px, 995px));
+  height: 360px;
+  @include s.mq(sp) {
+    width: 100%;
+    height: 182px;
+  }
+}
+
+.contact__image img {
+  width: 100%;
+}
+
+/*-------------------------------------------
+「トップアイコン」レイアウト
+-------------------------------------------*/
+.top__icon {
+  width: 68px;
+  height: 68px;
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+.top__icon.active {
+  opacity: 1;
+  visibility: visible;
+}

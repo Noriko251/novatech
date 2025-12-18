@@ -1,0 +1,118 @@
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+@use "setting" as s;
+/*除算用にmathモジュールをインポート*/
+@use "sass:math";
+
+/* ここから記述します。 */
+.header {
+  height: s.$headerHeight;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  @include s.mq(sp) {
+    height: s.$headerHeight--sp;
+    background: s.$colorWhite;
+  }
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+}
+
+.header__logoImg {
+  width: 130px;
+  height: auto;
+  @include s.mq(sp) {
+    width: 68px;
+  }
+}
+
+.header__nav {
+  @include s.mq(sp) {
+    display: none;
+  }
+}
+
+.header__list {
+  display: flex;
+  gap: 36px;
+  font-weight: bold;
+}
+
+.header__item {
+  transition: opacity 0.3s;
+}
+
+.header__item:hover {
+  opacity: 0.6;
+}
+
+.header__hamburger {
+  display: none;
+  @include s.mq(sp) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+  }
+}
+
+.header__line {
+  display: inline-block;
+  width: 42px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: s.$colorBlue;
+  transition: 0.5s;
+}
+
+.header__hamburger.active .header__line:nth-child(1) {
+  transform: translateY(15px) rotate(-45deg);
+}
+.header__hamburger.active .header__line:nth-child(2) {
+  opacity: 0;
+}
+.header__hamburger.active .header__line:nth-child(3) {
+  transform: translateY(-15px) rotate(45deg);
+}
+
+.header__overlay {
+  background: transparent url(../image/overlay.png) no-repeat top center / cover;
+  position: fixed;
+  right: -120%;
+  top: 72px;
+  width: 100%;
+  height: 100vh;
+  padding-top: 80px;
+  padding-left: 11%;
+  transition: all 0.5s;
+}
+
+.header__overlay.active {
+  right: 0;
+  z-index: 90;
+}
+
+.header__overlay--list {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  color: s.$colorBlue;
+  font-weight: bold;
+}
+
+.header__overlay--item:last-of-type {
+  display: flex;
+  gap: 20px;
+  margin-top: 6px;
+}
+
+.header__overlay--item img {
+  height: 30px;
+  width: auto;
+}

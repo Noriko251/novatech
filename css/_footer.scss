@@ -1,0 +1,73 @@
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+@use "setting" as s;
+/*除算用にmathモジュールをインポート*/
+@use "sass:math";
+
+/* ここから記述します。 */
+.footer {
+  background: transparent url(../image/footer-bg.png) no-repeat top center /
+    cover;
+  padding-bottom: 24px;
+  @include s.mq(sp) {
+    background: transparent url(../image/footer-bg-sp.png) no-repeat top center /
+      cover;
+  }
+}
+
+.footer__inner {
+  width: percentage(math.div(888, 1280));
+  margin: 40px auto 0;
+  padding-top: 168px;
+  @include s.mq(sp) {
+    width: percentage(math.div(378, 420));
+    padding-top: 32px;
+  }
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 57px;
+  @include s.mq(sp) {
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+    margin-bottom: 8px;
+  }
+}
+
+.footer__list {
+  display: flex;
+  gap: 28px;
+  @include s.mq(sp) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.footer__logo {
+  width: 93px;
+  height: auto;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include s.mq(sp) {
+    flex-direction: column;
+    align-items: start;
+    gap: 32px;
+  }
+}
+
+.footer__ruleWrap {
+  display: flex;
+  gap: 35.5px;
+  @include s.mq(sp) {
+    gap: 12px;
+  }
+}
