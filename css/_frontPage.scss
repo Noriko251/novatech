@@ -10,6 +10,9 @@
   position: relative;
   width: 100vw;
   height: 720px;
+  @media screen and (min-width: 1390px) {
+    height: 900px;
+  }
 }
 
 .firstView::before {
@@ -30,6 +33,7 @@
 .firstView__slideList {
   position: relative;
   width: 100%;
+  height: 100%;
   @include s.mq(sp) {
     height: 100vh;
     position: absolute;
@@ -39,6 +43,7 @@
 
 .firstView__slideItem {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -124,6 +129,10 @@
 /*-------------------------------------------
 「信頼の技術とサポート」レイアウト
 -------------------------------------------*/
+.support {
+  background: s.$colorWhite;
+}
+
 .support__inner {
   position: relative;
   max-width: 1080px;
@@ -132,7 +141,6 @@
   display: flex;
   justify-content: space-between;
   z-index: 91;
-  @include s.innerWidth;
   @include s.mq(sp) {
     flex-direction: column;
     width: percentage(math.div(390, 420));
@@ -255,6 +263,7 @@
 
 .service__inner {
   margin: 0 auto;
+  max-width: 1080px;
   @include s.innerWidth;
   @include s.mq(sp) {
     flex-direction: column;
@@ -276,6 +285,7 @@
 }
 
 .service__list {
+  margin: 49px auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 354px));
   column-gap: 75px;
@@ -362,6 +372,7 @@
 
 .about__inner {
   margin: 0 auto;
+  max-width: 1080px;
   @include s.innerWidth;
   @include s.mq(sp) {
     flex-direction: column;

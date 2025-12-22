@@ -266,6 +266,11 @@ img {
   width: 100vw;
   height: 720px;
 }
+@media screen and (min-width: 1390px) {
+  .firstView {
+    height: 900px;
+  }
+}
 
 .firstView::before {
   content: "";
@@ -285,6 +290,7 @@ img {
 .firstView__slideList {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 @media screen and (max-width: 821px) {
   .firstView__slideList {
@@ -296,6 +302,7 @@ img {
 
 .firstView__slideItem {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -411,6 +418,10 @@ img {
 /*-------------------------------------------
 「信頼の技術とサポート」レイアウト
 -------------------------------------------*/
+.support {
+  background: #fff;
+}
+
 .support__inner {
   position: relative;
   max-width: 1080px;
@@ -423,7 +434,6 @@ img {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 91;
-  width: 84.375%;
 }
 @media screen and (max-width: 821px) {
   .support__inner {
@@ -576,6 +586,7 @@ img {
 
 .service__inner {
   margin: 0 auto;
+  max-width: 1080px;
   width: 84.375%;
 }
 @media screen and (max-width: 821px) {
@@ -604,6 +615,7 @@ img {
 }
 
 .service__list {
+  margin: 49px auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 354px));
   -webkit-column-gap: 75px;
@@ -712,6 +724,7 @@ img {
 
 .about__inner {
   margin: 0 auto;
+  max-width: 1080px;
   width: 84.375%;
 }
 @media screen and (max-width: 821px) {
